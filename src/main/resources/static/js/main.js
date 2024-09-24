@@ -16,6 +16,7 @@ let colors = [
     '#ffc107', '#ff85af', '#FF9800', '#39bbb0'
 ];
 
+let grabTicketButton = document.querySelector('#grabTicketButton');
 function connect(event){
     //去除使用者名稱多於空格
     username=document.querySelector('#name').value.trim();
@@ -108,6 +109,17 @@ function  getAvatarColor(messageSender){
     let index=Math.abs(hash%colors.length);
     return colors[index];
 }
+
+
+grabTicketButton.addEventListener('click', function(event) {
+    let chatMessage = {
+        sender: username,
+        type: 'CHAT'
+    };
+    stompClient.send("/app/chat.grabTicket", {}, JSON.stringify(chatMessage));
+});
+
+
 //連接
 usernameForm.addEventListener('submit', connect, true)
 //傳送訊息
