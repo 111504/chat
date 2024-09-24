@@ -72,6 +72,8 @@ function onMessageReceived(payload){
 
     let messageElement=document.createElement('li');
 
+
+
     if(message.type==='JOIN'){
         messageElement.classList.add('event-message');
         message.content = message.sender+' joined!';
@@ -79,7 +81,12 @@ function onMessageReceived(payload){
         messageElement.classList.add('event-message');
         message.content=message.sender+' left!';
     }else{
-        messageElement.classList.add('chat-message');
+        // 判斷是否為自己發送的消息
+        if (message.sender === username) { // username 是當前登入的用戶名
+            messageElement.classList.add('my-message');
+        } else {
+            messageElement.classList.add('chat-message');
+        }
 
         let avatarElement=document.createElement('i');
         let avatarText = document.createTextNode(message.sender[0]);

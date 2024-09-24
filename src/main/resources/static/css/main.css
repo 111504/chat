@@ -285,3 +285,46 @@ button.accent {
         font-size: 1.1em;
     }
 }
+
+
+/* 針對自己發送的訊息 */
+#chat-page .my-message {
+    text-align: right;
+    padding-right: 80px;
+    position: relative; /* 讓頭像基於父容器進行定位 */
+}
+
+#chat-page .my-message span {
+    color: #333;
+    font-weight: 600;
+}
+
+#chat-page .my-message p {
+    color: #43464b;
+}
+
+/* 調整自己的訊息氣泡背景顏色，讓它和其他訊息區分開 */
+#chat-page .my-message i {
+    background-color: #6db33f;
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    right: 15px;
+    top: 10px; /* 確保頭像在文字的中間 */
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 42px;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+
+
+
+
+
